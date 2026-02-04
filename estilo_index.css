@@ -1,0 +1,196 @@
+/* --------------------------
+   Estilos Globais e do Body
+   -------------------------- */
+   body {
+    background-image: url("imagens/backgroun_body.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+  
+  /* Overlay semitransparente para o body */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(90, 85, 85, 0.7);
+    z-index: -1;
+  }
+  
+  /* --------------------------
+     Cabeçalho (Título)
+     -------------------------- */
+  h1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 1000; /* Garante que o cabeçalho fique acima do overlay */
+    background: url("imagens/back_titulo.webp") no-repeat center center;
+    background-size: cover;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    font-size: 48px;
+    text-align: center;
+    color: black;
+  }
+  
+  h1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(97, 94, 94, 0.6);
+    z-index: 900;
+  }
+  
+  h1 span {
+    position: relative;
+    z-index: 950;
+    color: rgb(255, 255, 255);
+  }
+  
+  /* --------------------------
+     Seção de Imagem de Abertura
+     -------------------------- */
+  #imagem-abertura {
+    display: flex;
+    justify-content: center;
+    margin: 140px 0 40px 0;  /* margem superior aumentada para não sobrepor o header fixo */
+    margin-top: 70px;
+  }
+  
+  .container-imagem {
+    width: 80%;
+    max-width: 600px;
+    background-color: #10a9f0;
+    border: 5px solid #000000;
+    border-radius: 6px;
+    padding: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .container-imagem img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* --------------------------
+     Botão de Redirecionamento
+     -------------------------- */
+  .button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+    gap: 10px;
+  }
+  
+  .botao-pagina {
+    display: inline-block;
+    margin: 20px 0;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 1001; /* Para garantir que o botão fique acima do overlay */
+  }
+  
+  .botao-pagina:hover {
+    background-color: rgb(255, 255, 255);
+    color: black;
+  }
+  
+  .botao-pagina::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .botao-pagina:hover::after {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* --------------------------
+     Controles de Música
+     -------------------------- */
+  .music-controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .botao {
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease;
+    z-index: 1001;
+  }
+  
+  .botao:hover {
+    background-color: rgb(129, 129, 129);
+  }
+  
+  .botao::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .botao:hover::after {
+    opacity: 1;
+    visibility: visible;
+  }
+  

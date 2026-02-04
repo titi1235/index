@@ -1,0 +1,802 @@
+/* ----- ESTILIZAÇÃO GERAL ----- */
+/* Remove todas as margens externas da página para evitar espaçamentos indesejados */
+body {
+  margin: 0;
+  /* Remove todos os espaçamentos internos da página */
+  padding: 0;
+  /* Impede a rolagem horizontal, evitando que elementos ultrapassem a largura da tela */
+  overflow-x: hidden;
+}
+
+/* ----- CONTAINER PRINCIPAL ----- */
+/* Aplica o modelo de layout flexível, permitindo alinhar e distribuir os elementos dentro do container */
+.container {
+  display: flex;
+  /* Distribui os elementos igualmente dentro do container, mantendo espaço entre eles */
+  justify-content: space-between;
+  /* Alinha os itens ao topo do container */
+  align-items: flex-start;
+  /* Define um tamanho máximo para a largura do container, evitando que fique muito largo em telas grandes */
+  max-width: 1200px;
+  /* Centraliza o container horizontalmente na página */
+  margin: auto;
+  /* Adiciona um espaçamento interno ao redor do conteúdo */
+  padding: 20px;
+}
+
+/* ----- SEÇÃO DE INFORMAÇÕES PESSOAIS ----- */
+/* Permite que a seção ocupe um espaço flexível dentro do container, ajustando-se dinamicamente */
+#info_pessoais {
+  flex: 1;
+  /* Define a cor de fundo como branca */
+  background: white;
+  /* Adiciona espaçamento interno para que o conteúdo não encoste nas bordas */
+  padding: 20px;
+  /* Adiciona bordas arredondadas para um design mais suave */
+  border-radius: 8px;
+  /* Aplica uma sombra leve para dar um efeito de profundidade */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  /* Define um limite máximo para a largura da seção, evitando que ocupe toda a tela */
+  max-width: 40%;
+}
+
+/* ----- FOTO DE PERFIL ----- */
+/* Define que a imagem ocupe 100% da largura do container pai */
+.foto-perfil {
+  width: 100%;
+  /* Limita a largura máxima da imagem a 250 pixels */
+  max-width: 20px;
+  /* Adiciona bordas arredondadas para um visual mais suave */
+  border-radius: 8px;
+  /* Garante que a imagem preencha todo o espaço disponível sem distorção */
+  object-fit: cover;
+}
+
+/* ----- COMPETÊNCIAS ----- */
+/* Permite que o elemento ocupe o espaço disponível dentro do container flexível */
+#competencias {
+  flex: 1;
+  /* Define a cor de fundo como branca */
+  background: white;
+  /* Adiciona espaçamento interno para afastar o conteúdo das bordas */
+  padding: 20px;
+  /* Arredonda as bordas para um design mais moderno */
+  border-radius: 8px;
+  /* Aplica uma sombra leve para dar um efeito de profundidade */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  /* Define um limite máximo para a largura da seção, impedindo que ocupe mais de 40% da tela */
+  max-width: 40%;
+}
+
+/* ----- EVITANDO QUEBRA DE LAYOUT ----- */
+/* Aplica as regras abaixo quando a largura da tela for menor que 1300px */
+@media (max-width: 1300px) {
+  /* Muda a direção do layout para coluna, empilhando os elementos verticalmente */
+  .container {
+    flex-direction: column;
+    /* Centraliza os elementos no eixo principal */
+    align-items: center;
+  }
+
+  /* Expande a largura das seções para ocupar toda a largura disponível na tela menor */
+  #info_pessoais, #competencias {
+    max-width: 100%;
+  }
+}
+
+/* ----- SEÇÃO DE CERTIFICADOS E CURSOS ----- */
+/* Usa flexbox para organizar os elementos */
+#cert, #cur {
+  display: flex;
+  /* Organiza os itens em coluna, um abaixo do outro */
+  flex-direction: column;
+  /* Distribui os elementos uniformemente dentro do container */
+  justify-content: space-between;
+  /* Mantém uma altura fixa para os elementos */
+  height: 350px;
+}
+
+/* Container dos certificados */
+/* Usa flexbox para alinhar os elementos */
+#certificados-container {
+  display: flex;
+  /* Mantém os elementos organizados em coluna */
+  flex-direction: column;
+  /* Centraliza os elementos no eixo principal */
+  align-items: center;
+  /* Ocupa toda a largura disponível do container pai */
+  width: 100%;
+  /* Define um limite máximo de largura */
+  max-width: 1200px;
+}
+
+/* Ajusta a largura e altura das seções de certificados e cursos */
+/* Faz com que ocupem toda a largura do container pai */
+#cert, #cur {
+  width: 100%;
+  /* Mantém um tamanho mínimo igual ao Percurso Acadêmico, garantindo consistência visual */
+  min-height: 500px;
+}
+
+/* Diminuir a altura do container dos certificados e formação */
+#cert, #cur {
+  min-height: 100px; /* Alterar de 500px para 300px */
+  height: 100px; /* Definir altura fixa de 300px */
+}
+
+/* ====== ESTILOS GLOBAIS ====== */
+/* Define o estilo global do corpo da página */
+body {
+  /* Define uma cor de fundo cinza claro para toda a página */
+  background: #f5f5f5;
+  /* Define a fonte principal como Arial e, caso não esteja disponível, usa sans-serif */
+  font-family: Arial, sans-serif;
+  /* Define a cor do texto como cinza escuro */
+  color: #333;
+  /* Remove todas as margens da página */
+  margin: 0;
+  /* Remove todos os preenchimentos da página */
+  padding: 0;
+}
+
+/* ====== AJUSTE DA MARGEM SUPERIOR ====== */
+/* Ajusta a margem superior para compensar elementos fixos, como título e navegação */
+.container {
+  /* Define um limite máximo de largura para o container */
+  max-width: 1200px;
+  /* Define margens externas: 60px no topo, centraliza horizontalmente e 20px na parte inferior */
+  margin: px auto 20px;
+  /* Adiciona espaçamento interno nas laterais */
+  padding: 0 15px;
+}
+
+/* ====== CABEÇALHO ====== */
+/* Define a posição do cabeçalho */
+#cabecalho {
+  position: relative;
+}
+
+/* ====== CONTAINER DO TÍTULO ====== */
+/* Define o estilo do título da página */
+.titulo {
+  /* Mantém o título fixo no topo da tela */
+  position: fixed;
+  /* Centraliza o texto dentro do container */
+  text-align: center;
+  /* Faz com que o título ocupe toda a largura disponível */
+  width: 100%;
+  /* Define uma altura fixa para o título */
+  height: 80px;
+  /* Aplica uma imagem de fundo ao título, centralizando-a */
+  background: url("imagens/back_titulo.webp") no-repeat center center;
+  /* Ajusta a imagem de fundo para cobrir todo o espaço do título */
+  background-size: cover;
+  /* Usa flexbox para alinhar os elementos dentro do título */
+  display: flex;
+  /* Centraliza os itens verticalmente */
+  align-items: center;
+  /* Centraliza os itens horizontalmente */
+  justify-content: center;
+  /* Garante que o título fique acima de outros elementos da página */
+  z-index: 3000;
+}
+
+/* ====== CAMADA ESCURA SOBRE A IMAGEM DE FUNDO ====== */
+/* Adiciona uma camada escura sobre o título para melhorar a legibilidade do texto */
+.titulo::before {
+  /* Adiciona um elemento vazio para criar a camada escura */
+  content: "";
+  /* Permite que o elemento seja posicionado sobre a imagem */
+  position: absolute;
+  /* Posiciona a camada no topo do título */
+  top: 0;
+  /* Alinha a camada à esquerda */
+  left: 0;
+  /* Faz com que a camada ocupe toda a largura do título */
+  width: 100%;
+  /* Faz com que a camada ocupe toda a altura do título */
+  height: 100%;
+  /* Aplica uma cor preta semi-transparente à camada */
+  background-color: rgba(0, 0, 0, 0.6);
+  /* Mantém a camada abaixo do texto do título, mas acima da imagem de fundo */
+  z-index: 1000;
+}
+
+/* ====== ESTILO DO TEXTO DO TÍTULO ====== */
+/* Define a estilização do texto dentro do título */
+.titulo h1 {
+  /* Define a fonte do título como Times New Roman */
+  font-family: "Times New Roman", Times, serif;
+  /* Aplica negrito ao texto */
+  font-weight: bold;
+  /* Define o tamanho da fonte para 48px */
+  font-size: 48px;
+  /* Centraliza o texto dentro do container */
+  text-align: center;
+  /* Define a cor do texto como branca */
+  color: white;
+  /* Remove qualquer margem extra ao redor do texto */
+  margin: 0;
+  /* Mantém o título fixo, garantindo que ele não se mova ao rolar a página */
+  position: fixed;
+  /* Mantém o texto do título acima da camada escura */
+  z-index: 2000;
+}
+
+/* ====== TRANSFORMANDO O TÍTULO EM BOTÃO ====== */
+/* Define o estilo do botão dentro do título */
+.titulo-botao {
+  /* Remove o sublinhado do link */
+  text-decoration: none;
+  /* Define a cor do texto do botão como branca */
+  color: white;
+  /* Adiciona espaçamento interno ao botão */
+  padding: 10px 20px;
+  /* Inicialmente, o botão não tem borda visível */
+  border: 2px solid transparent;
+  /* Adiciona uma transição suave ao passar o mouse */
+  transition: 0.3s ease-in-out;
+}
+
+/* ====== EFEITO AO PASSAR O MOUSE NO BOTÃO ====== */
+/* Aplica um efeito ao passar o mouse sobre o botão do título */
+.titulo-botao:hover {
+  /* Altera a cor da borda para preto */
+  border-color: rgb(0, 0, 0);
+  /* Adiciona um fundo semi-transparente branco */
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ----- SEÇÃO INFORMAÇÕES PESSOAIS ----- */
+/* Define a largura fixa da seção */
+#info_pessoais {
+  flex: 0 0 45%;
+
+  #info_pessoais, #competencias {
+    flex: 0 0 90%;
+  }
+
+  .info-box {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* CSS da Barra de Navegação */
+#navegacao {
+  position: fixed;
+  top: 80px;
+  width: 100%;
+  background: #000;
+  z-index: 990;
+}
+
+#navegacao nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 0;
+  margin: 0;
+}
+
+#navegacao nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.1em;
+}
+
+#navegacao nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Estilo comum para as seções */
+.section {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: unset; /* Remover altura mínima geral */
+  padding-top: 80px; /* Adicionar padding-top de 80px */
+  margin-top: -80px; /* Adicionar margin-top negativo de 80px */
+  scroll-margin-top: unset; /* Remover scroll-margin-top */
+}
+
+.section {
+  width: 100%;
+  max-width: 1200px; /* Mesmo tamanho do Percurso Académico */
+  min-height: 300px; /* Alterado de 500px para 300px */
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  scroll-margin-top: 140px; /* Ajustar conforme necessário para garantir que a seção não fique escondida */
+}
+
+/* Seção Principal que agrupa Informações Pessoais e Competências */
+#info_competencias {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+ 
+  margin-top: 60px; /* Adicionar margem superior de 40px */
+}
+
+/* Ajuste do tamanho do container das Informações Pessoais */
+#Inform {
+  flex: 0 0 50%;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 300px; /* Definir altura mínima específica */
+}
+
+/* Informações Pessoais à Esquerda */
+#dados_pessoais {
+  text-align: left;
+  font-size: 1em;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Aumentando o tamanho da imagem de perfil e mantendo-a no lado direito */
+#foto_perfil {
+  flex: 0 0 300px;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 20px;
+}
+
+#foto_perfil img {
+  width: 100%;
+  max-width: 287px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para alinhar os ícones ao lado do texto */
+#dados_pessoais p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#dados_pessoais p img.icon {
+  width: 20px;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* Ajustando o tamanho do container das Competências */
+#Competencias {
+  flex: 0 0 45%;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 300px; /* Definir altura mínima específica */
+}
+
+/* Estilizando a lista de competências */
+#Competencias ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#Competencias ul li {
+  background: #e6e6e6;
+  margin: 6px 0;
+  padding: 6px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+
+#Competencias h2 {
+  position: relative;
+  padding-bottom: 10px; /* Espaço para a linha */
+  margin-bottom: 20px;  /* Espaçamento extra se necessário */
+}
+/* Redução do tamanho das barras de competências */
+.competencia {
+  margin: 8px 0;
+}
+
+.competencia-name {
+  font-weight: bold;
+  margin-bottom: 3px;
+  font-size: 0.9em;
+}
+
+.competencia-bar {
+  width: 100%;
+  background-color: #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+  height: 15px;
+}
+
+.competencia-level {
+  height: 100%;
+  text-align: right;
+  padding-right: 8px;
+  color: white;
+  font-weight: bold;
+  line-height: 15px;
+  transition: width 1s ease-in-out;
+}
+
+.level-1 { width: 20%; background-color: #000000; }
+.level-2 { width: 40%; background-color: #000000; }
+.level-3 { width: 60%; background-color: #000000; }
+.level-4 { width: 80%; background-color: #000000; }
+.level-5 { width: 100%; background-color: #000000; }
+
+.section h2 {
+  position: relative;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-bottom: 2px solid #000;
+}
+/* Seção: Percurso Académico (AUMENTADO) */
+#percurso {
+  width: 100%;
+  max-width: 1200px; /* Aumentei a largura */
+  margin: 0 auto;
+  min-height: 200px; /* Ajustado para garantir a altura mínima */
+}
+
+#percurso iframe {
+  border: 1px solid #000;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 1200px; /* Aumentei a largura */
+  height: 200px; /* Alterado de 300px para 200px */
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: 400px; /* Ajustado para o mesmo tamanho das seções */
+  border: none;
+}
+/* Ajustando o tamanho dos ícones PDF no Portfólio Académico */
+.portfolio-icon {
+  width: 40px; /* Reduzi o tamanho dos ícones PDF */
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.portfolio-icon:hover {
+  transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+}
+/* Estilização da galeria de atividades */
+#fotos_atividades {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+#fotos_atividades img {
+  width: 300px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+#fotos_atividades img:hover {
+  transform: scale(1.5);
+  position: center;
+}
+
+/* Seção: Projeto Web SIG - Organizado Verticalmente */
+#websig-container {
+  display: flex;
+  flex-direction: column; /* Mantém os dois containers empilhados */
+  align-items: center; /* Centraliza os elementos */
+  gap: 20px; /* Adiciona um espaço entre os dois containers */
+  width: 100%;
+  max-width: 1400px; /* Define um limite para evitar esticar demais */
+  margin: 0 auto;
+}
+
+/* Estilos Individuais para Cada Container */
+#projwebsig1, #projwebsig2 {
+  background: #f9f9f9;
+  padding: 30px;
+  border: 2px dashed #000;
+  width: 100%;
+  max-width: 1400px;
+  border-radius: 8px;
+  min-height: 250px; /* Definir altura mínima específica */
+}
+
+#projwebsig1 #map, #projwebsig2 #map2 {
+  height: 400px;
+  width: 100%;
+  max-width: 1400px;
+  border-radius: 8px;
+}
+
+/* Ajuste para exibir o mapa e a tabela lado a lado */
+#websig-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+  height: 400px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Contêiner do mapa */
+#map-container {
+  flex: 0 0 60%;
+  height: 450px; /* Ajustar para a mesma altura da tabela */
+}
+
+/* Ajustar a altura do mapa na seção Projeto Web SIG (2ª parte) para que tenha a mesma altura da tabela */
+#map2 {
+  width: 100%;
+  height: 700px; /* Ajustar para a mesma altura da tabela */
+  border-radius: 8px;
+  border: 2px solid #000;
+}
+
+/* Contêiner da tabela */
+#image-table-container {
+  flex: 0 0 40%;
+  height: 400px;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+
+/* Estilo da tabela */
+#image-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#image-table th, #image-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+#image-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+/* Ajustando as imagens dentro da tabela */
+#image-table img {
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+#image-table img:hover {
+  transform: scale(1.5);
+}
+
+/* Centralizar os botões e o slide bar de controle das animações do Web SIG 1 */
+#videoControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.buttonanimation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Aumentar o tamanho do slide bar para o mesmo tamanho do container do mapa */
+#yearSlider {
+  width: 100%; /* Ajustar para o mesmo tamanho do container do mapa */
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  #websig-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #map-container, #image-table-container {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 700px;
+  }
+}
+
+/* Garante que o conteúdo ocupe a altura total da tela */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* FOOTER GERAL */
+
+
+
+.footer-bar {
+  background-color: black; /* Definir o background como preto */
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  width: 200%; /* Aumentar a largura do container em 100% */
+  margin: 5% auto 0; /* Centralizar o footer bar */
+}
+
+
+.contact-info {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ddd;
+}
+
+
+
+form label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  background: #bfbcbc;
+  color: #fff;
+  font-size: 16px;
+}
+
+form textarea {
+  min-height: 100px;
+}
+
+form button {
+  background-color: #7f7f7f;
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
+  width: 100%;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background-color: #ffffff;
+  color: #000;
+}
+
+/* === CORREÇÃO PARA O LEAFLET NÃO FICAR SOBRE O CABEÇALHO === */
+.leaflet-container {
+  z-index: 1 !important;
+}
+
+/* === ADICIONANDO BACKGROUND PARA O SITE INTEIRO === */
+body {
+  background: url("imagens/backgroun_body.webp") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Seção: Portfólio Académico */
+#portfolio {
+  min-height: 250px; /* Definir altura mínima específica */
+}
+
+/* Seção: Atividades */
+#act {
+  min-height: 300px; /* Definir altura mínima específica */
+}
+
+/* Seção: Certificados e Formação */
+#cert {
+  min-height: 200px; /* Definir altura mínima específica */
+}
+
+/* Seção: Curriculum Vitae */
+#cur {
+  min-height: 200px; /* Definir altura mínima específica */
+}
+
+.popup {
+  position: absolute;
+  background: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  z-index: 1000;
+  white-space: nowrap;
+}
+.creator-info {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #ddd;
+}
+.footer-bar ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+}
+.footer-bar ul li {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #ddd;
+}
+.footer-bar ul li a {
+  color: #ddd;
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

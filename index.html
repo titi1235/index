@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Página Pessoal</title>
+  <!-- Ligação ao ficheiro CSS -->
+  <link rel="stylesheet" href="estilo_projeto.css"> cria uma secção para imagem de avertura  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Página Pessoal: Tiago Manuel Gonçalves Brito</title>
+    
+    <!-- CSS do Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" type="text/css" href="estilo_index.css" />
+  
+    <!-- Biblioteca Leaflet para Mapas -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+  
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+</head>
+<body>
+
+    <h1>
+        <strong>
+            <span>Tiago Manuel Gonçalves Brito</span>
+        </strong>
+    </h1>
+  <p>Este é um exemplo simples de como criar links.</p>
+ 
+  <!-- SEÇÃO E CONTÊINER PARA CENTRALIZAR E CRIAR O RETÂNGULO AO REDOR DA IMAGEM -->
+  <section id="imagem-abertura">
+    <div class="container-imagem">
+      <img src="imagens/imagem abertura.webp" alt="Descrição da Imagem" />
+    </div>
+  </section>
+  
+
+  <div class="button-container">
+    <a class="botao-pagina" href="pessoal.html" data-tooltip="Clique para mudar para a página pessoal">
+        Ir para a página pessoal
+    </a>
+</div>
+
+  <audio id="musica" loop>
+    <source src="musica/Muse - Psycho (Radio Edit).mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+</audio>
+
+<!-- Botões de Controle -->
+<audio id="musica" loop>
+  <source src="musica/Muse - Psycho (Radio Edit).mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio.
+</audio>
+
+<!-- Controles de Música -->
+<div class="music-controls">
+  <button class="botao" data-tooltip="Iniciar Música" onclick="tocarMusica()">▶</button>
+  <button class="botao" data-tooltip="Pausar Música" onclick="pausarMusica()">⏸</button>
+  <button class="botao" data-tooltip="Parar Música" onclick="pararMusica()">⏹</button>
+  <button class="botao" data-tooltip="Aumentar Volume" onclick="aumentarVolume()">🔊</button>
+  <button class="botao" data-tooltip="Diminuir Volume" onclick="diminuirVolume()">🔉</button>
+</div>
+
+<audio id="musica" loop>
+  <source src="musica/Muse - Psycho (Radio Edit).mp3" type="audio/mpeg">
+  Seu navegador não suporta áudio.
+</audio>
+
+<script>
+  var audio = document.getElementById("musica");
+
+  function iniciarMusica() {
+      audio.currentTime = 0; // Sempre começa do início
+      audio.volume = 0.05;  // Define volume inicial baixo
+
+      var playPromise = audio.play();
+
+      if (playPromise !== undefined) {
+          playPromise.then(() => {
+              console.log("🎶 Música iniciada automaticamente.");
+          }).catch(error => {
+              console.log("⚠️ Autoplay bloqueado! Tentando ativar com interação...");
+              document.addEventListener("click", ativarSom);
+          });
+      }
+  }
+
+  function ativarSom() {
+      audio.play();
+      document.removeEventListener("click", ativarSom);
+  }
+
+  window.addEventListener("load", function () {
+      iniciarMusica();
+  });
+
+  function tocarMusica() {
+      audio.play();
+  }
+
+  function pausarMusica() {
+      audio.pause();
+  }
+
+  function pararMusica() {
+      audio.pause();
+      audio.currentTime = 0; // Sempre volta ao início
+  }
+
+  function aumentarVolume() {
+      if (audio.volume < 1) {
+          audio.volume = Math.min(audio.volume + 0.05, 1);
+      }
+      console.log("🔊 Volume:", Math.round(audio.volume * 100) + "%");
+  }
+
+  function diminuirVolume() {
+      if (audio.volume > 0) {
+          audio.volume = Math.max(audio.volume - 0.05, 0);
+      }
+      console.log("🔉 Volume:", Math.round(audio.volume * 100) + "%");
+  }
+</script>
+
+
+
+</body>
+</html>
